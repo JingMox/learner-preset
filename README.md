@@ -112,6 +112,10 @@ Just talk normally:
 - DeepSeek Harness: https://github.com/deepseek-ai/deepseek-harness
 - `agent.cordis.yml` derives from its `standard` preset (MIT).
 
+## Contact
+
+Email: [l@qntx.fun](mailto:l@qntx.fun) — questions, feedback, and issues are all welcome.
+
 ## License
 
 MIT

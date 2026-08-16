@@ -112,6 +112,10 @@ cp agent.cordis.yml kb-plugin.js preset.yml ~/.dsh/.agent-presets/learner/
 - DeepSeek Harness: https://github.com/deepseek-ai/deepseek-harness
 - 本仓库的 `agent.cordis.yml` 源自其 `standard` 预设(MIT)。
 
+## 联系
+
+邮箱:[l@qntx.fun](mailto:l@qntx.fun)。问题、反馈或需求,欢迎邮件或直接提 issue。
+
 ## License
 
 MIT
