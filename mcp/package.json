@@ -1,0 +1,11 @@
+{
+  "name": "learner-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "MCP server exposing the learner knowledge base (first-principles learning loop) to any MCP client.",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.0",
+    "zod": "^3.24.0"
+  }
+}

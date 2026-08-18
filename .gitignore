@@ -4,3 +4,6 @@ node_modules/
 
 # 个人知识库文件不属于本仓库(插件首次使用时会自动创建):
 # ~/.dsh/learner/kb.json
+
+# MCP 依赖(锁文件 package-lock.json 保留):
+mcp/node_modules/
