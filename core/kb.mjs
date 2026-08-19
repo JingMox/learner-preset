@@ -96,9 +96,12 @@ export function defaultKb() {
 }
 
 // 从 v1 结构({mastered:[], profile})迁移到 v2。
+// v1 条目: {concept, aliases, summary, prereqs(名字数组), evidence, confidence}。
+// 前置依赖按名字解析为组件 id;解析不到的名字原样保留(idToName 也能显示)。
 export function migrateV1(old) {
   const kb = defaultKb()
   const now = nowIso()
+  const entryPrereqs = []
   let n = 0
   for (const entry of Array.isArray(old.mastered) ? old.mastered : []) {
     if (!entry || typeof entry !== 'object') continue
@@ -122,6 +125,14 @@ export function migrateV1(old) {
       created_at: now,
       summary: typeof entry.summary === 'string' ? entry.summary : '',
       evidence: Array.isArray(entry.evidence) ? entry.evidence : (entry.evidence ? [String(entry.evidence)] : []),
+    })
+    entryPrereqs.push(Array.isArray(entry.prereqs) ? entry.prereqs.map(String) : [])
+  }
+  // 第二遍:所有组件就位后再解析前置引用。
+  for (let i = 0; i < kb.components.length; i += 1) {
+    kb.components[i].prerequisites = entryPrereqs[i].map((name) => {
+      const hit = matchComponents(kb, name)[0]
+      return hit ? hit.id : name
     })
   }
   if (old.profile && typeof old.profile === 'object') {
